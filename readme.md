@@ -21,6 +21,8 @@
    # out SQLI
    ```
 
+4. API server: docker run -d -p 8009:80 thuuyen18102001/nckh2023:cnn-fastapi-v1.0
+
 参考：
 
 1. [Torpeda CSIC 2012 datasets](<http://www.tic.itefi.csic.es/torpeda/datasets.html>)

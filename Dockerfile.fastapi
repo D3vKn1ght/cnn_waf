@@ -1,0 +1,16 @@
+FROM thuuyen18102001/nckh2023:cnn-env-v1.4
+RUN pip install fastapi==0.83.0
+RUN pip install uvicorn[standard]==0.15.0
+
+EXPOSE 80
+
+WORKDIR /app
+
+COPY api_server.py /app
+COPY detector.py /app
+COPY model /app/model
+COPY tokenizer /app/tokenizer
+
+CMD ["python", "api_server.py"]
+
+# docker build -t thuuyen18102001/nckh2023:cnn-fastapi-v1.0 -f Dockerfile.fastapi .
