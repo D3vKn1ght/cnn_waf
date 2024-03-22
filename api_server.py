@@ -5,10 +5,9 @@ from detector import Detector
 
 app = FastAPI()
 
-from fastapi import FastAPI
-
-app = FastAPI()
-
+class Item(BaseModel):
+    method: str="GET"
+    uri: str="/tienda1/example"
 
 @app.get("/")
 async def read_root():
@@ -16,16 +15,16 @@ async def read_root():
 
 
 @app.post("/detect/")
-async def detect_url(url: str="GET /tienda1/example"):
-    if not url:
-        raise HTTPException(status_code=400, detail="URL is required")
-    else:
-        try:
-            detector = Detector()
-            label_pred = detector.predict_url(url)
-            return {"url": url, "label": label_pred}
-        except Exception as e:
-            raise HTTPException(status_code=500, detail=str(e))
+async def detect_url(item: Item):
+    try:
+        method = item.method.upper().strip()
+        uri = item.uri.strip()
+        payload = method + " " + uri
+        detector = Detector()
+        label_pred = detector.predict_url(payload)
+        return {"method": method, "uri": uri, "label": label_pred}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
         
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=80)
