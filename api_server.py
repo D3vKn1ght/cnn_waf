@@ -12,9 +12,7 @@ class Item(BaseModel):
     uri: str="/tienda1/example"
 
 def format_uri(uri):
-    space_char = ["%20", "+"]
-    random_space = random.choice(space_char)
-    uri = uri.replace(" ", random_space)
+    uri = uri.replace(" ", "%20")
     return uri
     
 
