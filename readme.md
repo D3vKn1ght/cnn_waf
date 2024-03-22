@@ -4,9 +4,11 @@
 
 主要内容描述：
 
-1. 训练和测试的结果请看cnn_train_test.ipynb。
+1. docker run -d -v /root/cnn_waf:/app -p 8888:8888 thuuyen18102001/nckh2023:cnn-env-v1.4
 
-2. 要应用该模型进行检测请使用detector.py。其中训练好模型保存在model目录下，将URL向量化的模型保存在tokenizer目录下，若要使用detector.py，请自行更改路径。
+2. 训练和测试的结果请看cnn_train_test.ipynb。
+
+3. 要应用该模型进行检测请使用detector.py。其中训练好模型保存在model目录下，将URL向量化的模型保存在tokenizer目录下，若要使用detector.py，请自行更改路径。
 
    ```python
    # for example
