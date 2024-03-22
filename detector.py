@@ -6,8 +6,8 @@ from keras.preprocessing import sequence
 
 class Detector:
     def __init__(self):
-        self.tokenizer = pickle.load(open("./tokenizer/tokenizer.pickle", "rb"))
-        self.model = load_model("./model/cnn_clf.h5")
+        self.tokenizer = pickle.load(open("./tokenizer/tokenizer.pickle_nckh", "rb"))
+        self.model = load_model("./model/cnn_clf_nckh.h5")
         self.max_len = 600
         self.labels_type = ['SQLi', 'anomalous', 'normal', 'XSS', 'SSI', 'BufferOverflow', 'CRLFi', 'XPath', 'LDAPi', 'FormatString']
 
