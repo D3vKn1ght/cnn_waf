@@ -39,6 +39,7 @@ if __name__ == '__main__':
         for d in data:
             urls.append(d[:-1])
     labels_pred = detector.predict_urls(urls[:10])
-    print(labels_pred)
+    for i in range(10):
+        print("url: ", urls[i], "label: ", labels_pred[i])
     label_pred = detector.predict_url(urls[0])
-    print(label_pred)
+    print("url: ", urls[0], "label: ", label_pred)
